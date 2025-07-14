@@ -1,0 +1,11 @@
+{
+  "eslint.validate": ["typescript", "html"],
+
+  "html.format.templating": ["angular"],
+  "html.format.indentHandlebars": true,
+  "cSpell.words": [
+    "ngif",
+    "nikitsin",
+    "pavel"
+  ]
+}
