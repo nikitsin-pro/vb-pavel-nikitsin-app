@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "build:gh-pages": "npm run build -- --configuration=production --base-href=/vb-pavel-nikitsin-app/",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
     "lint": "ng lint",
