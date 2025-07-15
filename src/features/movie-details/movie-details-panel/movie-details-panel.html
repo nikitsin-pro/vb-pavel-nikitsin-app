@@ -1,1 +1,47 @@
-<p>movie-details-panel works!</p>
+<div class="overlay"
+     role="dialog"
+     aria-modal="true"
+     aria-labelledby="movie-title"
+     aria-describedby="movie-overview">
+  <a [routerLink]="['../']" [relativeTo]="route" class=" backdrop"></a>
+
+  <aside class="sidepanel">
+    @if (loading()){
+      <h1 class="placeholder-text" role="status" aria-live="polite">Loading...</h1>
+    } @else if (error()) {
+      <h1 class="placeholder-text alert" role="alert">Something went wrong</h1>
+    } @else if (movie()) {
+
+      <section class="main-info-container">
+        <a class="close-link" [routerLink]="['../']" [relativeTo]="route" aria-label="Close panel">
+          <img src="icons/close.svg" alt="close icon">
+        </a>
+
+        <img class="poster"
+             [src]="'https://image.tmdb.org/t/p/w154/' + movie().poster_path"
+             [alt]="'Poster for ' + movie().title">
+
+        <div class="main-info">
+          <h2 class="title" id="movie-title">{{ movie().title }}</h2>
+          <p>Homepage:
+            <a [href]="movie().homepage"
+               target="_blank"
+               rel="noopener noreferrer"
+               [attr.aria-label]="'Visit homepage for ' + movie().title">
+              {{movie().homepage}}
+            </a>
+          </p>
+          <p>Status: <span>{{ movie().status }}</span></p>
+          <p>Release date: <span>{{ movie().release_date }}</span></p>
+          <p>Rating: <span>{{ movie().vote_average.toFixed(1)}} / 10</span></p>
+          <p>Runtime: <span>{{ movie().runtime }} min.</span></p>
+        </div>
+      </section>
+
+      <section class="overview-container" id="movie-overview">
+        <h2 class="title">Overview</h2>
+        <p>{{ movie().overview }}</p>
+      </section>
+    }
+  </aside>
+</div>

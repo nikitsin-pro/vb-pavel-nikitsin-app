@@ -1,7 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { createActionGroup, props } from '@ngrx/store';
 
-import { MovieListResponse, PopularMoviesParams } from '../../../core/types/movie.dto';
+import { MovieListResponse, PopularMoviesParams } from '../../../core/types/movie-list.dto';
 
 export const PopularMoviesActions = createActionGroup({
   source: 'Popular Movies',

@@ -4,7 +4,7 @@ import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { MovieListItem } from '../../../../core/types/movie.dto';
+import { MovieListItem } from '../../../../core/types/movie-list.dto';
 import {
   selectAllPopularMovies,
   selectPopularMoviesLoading,

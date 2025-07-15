@@ -4,7 +4,7 @@ import { PopularMoviesActions } from './popular-movies.actions';
 import { catchError, map, switchMap, of } from 'rxjs';
 
 import { TmdbApi } from '../../../core/services/tmdb-api';
-import { MovieListResponse } from '../../../core/types/movie.dto';
+import { MovieListResponse } from '../../../core/types/movie-list.dto';
 
 @Injectable()
 export class PopularMoviesEffects {

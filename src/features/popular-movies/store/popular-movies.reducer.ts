@@ -1,7 +1,7 @@
 import { createEntityAdapter, EntityState } from '@ngrx/entity';
 import { createReducer, on } from '@ngrx/store';
 
-import { MovieListItem } from '../../../core/types/movie.dto';
+import { MovieListItem } from '../../../core/types/movie-list.dto';
 import { PopularMoviesActions } from './popular-movies.actions';
 
 export const POPULAR_MOVIES_FEATURE_KEY = 'popularMovies';

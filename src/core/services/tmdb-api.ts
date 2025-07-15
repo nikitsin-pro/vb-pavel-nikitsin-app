@@ -1,24 +1,20 @@
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 import { environment } from '../../environment';
-import { MovieListResponse, PopularMoviesParams } from '../types/movie.dto';
+import { MovieListResponse, PopularMoviesParams } from '../types/movie-list.dto';
+import { MovieDetails } from '../types/movie-details.dto';
 
 @Injectable({ providedIn: 'root' })
 export class TmdbApi {
   private http = inject(HttpClient);
 
-  searchMovies(query: string, page = 1) {
-    const params = new HttpParams()
-      .set('query', query)
-      .set('page', page.toString())
-      .set('include_adult', 'false')
-      .set('language', 'en-US');
-
-    return this.http.get(`${environment.tmdbApiURL}/search/movie`, { params });
+  loadMovieDetails(movieId: string): Observable<MovieDetails> {
+    return this.http.get<MovieDetails>(`${environment.tmdbApiURL}/movie/${movieId}`, { params: { language: 'en-US' } });
   }
 
-  loadPopularMovies(requestParams: PopularMoviesParams = {}) {
+  loadPopularMovies(requestParams: PopularMoviesParams = {}): Observable<MovieListResponse> {
     let params = new HttpParams()
       .set('include_adult', (requestParams.include_adult ?? false).toString())
       .set('include_video', (requestParams.include_video ?? false).toString())

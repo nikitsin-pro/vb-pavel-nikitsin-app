@@ -1,5 +1,5 @@
 import { Component, Input, input, Signal } from '@angular/core';
-import { MovieListItem } from '../../../../core/types/movie.dto';
+import { MovieListItem } from '../../../../core/types/movie-list.dto';
 import { RouterModule } from '@angular/router';
 
 interface MovieListCardModel {
