@@ -1,11 +1,15 @@
-import { Component, inject, OnInit, signal } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { MovieListItem } from '../../../../core/types/movie.dto';
-import { selectAllPopularMovies, selectPopularMoviesLoading } from '../../store/popular-movies.selectors';
+import {
+  selectAllPopularMovies,
+  selectPopularMoviesLoading,
+  selectPopularMoviesError,
+} from '../../store/popular-movies.selectors';
 import { PopularMoviesActions } from '../../store/popular-movies.actions';
 import { MovieCard } from '../../components/movie-card/movie-card';
 
@@ -20,6 +24,7 @@ export class PopularMovies implements OnInit {
 
   protected movies$: Observable<MovieListItem[]> = this.store.select(selectAllPopularMovies);
   protected loading$: Observable<boolean> = this.store.select(selectPopularMoviesLoading);
+  protected error$: Observable<boolean> = this.store.select(selectPopularMoviesError);
 
   ngOnInit(): void {
     this.store.dispatch(PopularMoviesActions.loadPopularMovies({ page: 1 }));

@@ -1,5 +1,7 @@
-<a [routerLink]="['/popular', movie.id]" routerLinkActive="router-link-active" class="movie-card"
-   [attr.aria-label]="`${movie.title} ${movie.releaseDate}`">
+<a [routerLink]="['/popular', movie.id]"
+   routerLinkActive="router-link-active"
+   class="movie-card"
+   [attr.aria-label]="`${movie.title}, rating: ${movie.voteAverage} out of 10, released: ${movie.releaseDate}`">
   @if (movie.imageUrl) {
     <img [src]="movie.imageUrl" alt="Poster for {{movie.title}}" />
   } @else {
@@ -8,7 +10,7 @@
 
   <div class="info-block">
     <h2 class="ellipsis">{{movie.title}}</h2>
-    <div class="metrics">
+    <div class="metrics" aria-hidden="true">
       <div class="ellipsis">rating: <span> {{movie.voteAverage}} / 10</span></div>
       <div class="ellipsis">released: <span> {{movie.releaseDate}}</span></div>
     </div>

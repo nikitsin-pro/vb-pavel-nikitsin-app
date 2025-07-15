@@ -20,12 +20,21 @@
 .container {
   margin-top: 70px;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1000px;
   display: flex;
   flex-direction: column;
   gap: 8px;
   padding: 0 10px;
   box-sizing: border-box;
 
-  // background-color: rgb(202, 209, 209);
+  .placeholder-text {
+    margin-top: 40px;
+    text-align: center;
+    color: var(--text-secondary);
+    font-weight: 400;
+  }
+
+  .alert {
+    color: var(--accent-700);
+  }
 }
