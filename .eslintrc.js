@@ -11,6 +11,7 @@ module.exports = {
       extends: ['eslint:recommended', 'plugin:@angular-eslint/recommended', 'prettier'],
       rules: {
         'no-console': 'warn',
+        'no-debugger': 'warn',
         'no-unused-vars': 'warn',
         'no-empty': 'warn',
       },
