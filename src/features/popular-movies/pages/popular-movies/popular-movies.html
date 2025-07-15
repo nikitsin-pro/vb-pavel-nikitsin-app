@@ -1,0 +1,6 @@
+<h1>Popular</h1>
+<div class="container">
+  @for (movie of (movies$ | async); track movie.id) {
+    <div>{{movie.title}}</div>
+  }
+</div>

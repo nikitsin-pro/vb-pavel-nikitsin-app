@@ -14,7 +14,7 @@ export interface PopularMoviesParams {
   region?: string;
 }
 
-/** Root response from /search/movie endpoint */
+/** Root response from `/discover/movie` endpoint */
 export interface MovieListResponse {
   /** Current page number */
   page: number;
@@ -29,7 +29,7 @@ export interface MovieListResponse {
   total_results: number;
 }
 
-/** Single movie item returned in search results */
+/** Single movie item returned in MovieListResponse.results */
 export interface MovieListItem {
   // Identification
   /** Unique TMDB movie ID */
