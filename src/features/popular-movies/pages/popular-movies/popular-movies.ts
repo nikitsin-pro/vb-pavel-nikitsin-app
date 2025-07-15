@@ -1,15 +1,17 @@
 import { Component, inject, OnInit, signal } from '@angular/core';
 import { AsyncPipe } from '@angular/common';
+import { RouterOutlet } from '@angular/router';
 import { Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 
 import { MovieListItem } from '../../../../core/types/movie.dto';
 import { selectAllPopularMovies, selectPopularMoviesLoading } from '../../store/popular-movies.selectors';
 import { PopularMoviesActions } from '../../store/popular-movies.actions';
-import { Observable } from 'rxjs';
+import { MovieCard } from '../../components/movie-card/movie-card';
 
 @Component({
   selector: 'app-popular-movies',
-  imports: [AsyncPipe],
+  imports: [AsyncPipe, MovieCard, RouterOutlet],
   templateUrl: './popular-movies.html',
   styleUrl: './popular-movies.scss',
 })

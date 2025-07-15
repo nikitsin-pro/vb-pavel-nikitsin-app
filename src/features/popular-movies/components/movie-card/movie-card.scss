@@ -1,0 +1,55 @@
+.movie-card {
+  max-width: 100%;
+  display: flex;
+  justify-content: stretch;
+  gap: 16px;
+
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: var(--surface);
+
+  cursor: pointer;
+  container-type: inline-size;
+}
+
+.img {
+  width: 92px;
+  height: 138px;
+}
+
+.info-block {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 8px 0;
+  overflow: hidden;
+  text-decoration: none;
+
+  h2 {
+    font-weight: 400;
+  }
+
+  .metrics {
+    display: flex;
+    color: var(--text-secondary);
+    font-size: 18px;
+
+    div:not(:last-child) {
+      margin-right: 16px;
+    }
+
+    span {
+      font-weight: 600;
+    }
+  }
+}
+
+
+
+@container (max-width: 440px) {
+  .info-block .metrics {
+    flex-direction: column;
+    font-size: 16px;
+  }
+}
