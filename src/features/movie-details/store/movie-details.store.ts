@@ -1,9 +1,9 @@
 import { Injectable, inject } from '@angular/core';
 import { ComponentStore } from '@ngrx/component-store';
-import { TmdbApi } from '../../../core/services/tmdb-api';
+import { Observable, switchMap, tap } from 'rxjs';
 
+import { TmdbApi } from '../../../core/services/tmdb-api';
 import { MovieDetails } from '../../../core/types/movie-details.dto';
-import { Observable, of, switchMap, tap } from 'rxjs';
 
 export interface MovieDetailsState {
   movie: MovieDetails | null;
