@@ -1,16 +1,21 @@
 /** Query parameters for `/discover/movie` request */
 export interface PopularMoviesParams {
-  /** ISO 639-1 language code (default: en-US) */
+  /** Language code (default: en-US) */
   language?: string;
-  /** Page number (default: 1, max: 500) */
+
+  /** Page number */
   page?: number;
-  /** Sort order (example: popularity.desc) */
+
+  /** Sort order */
   sort_by?: 'popularity.desc' | 'popularity.asc';
-  /** Exclude adult content */
+
+  /** Include adult content */
   include_adult?: boolean;
-  /** Exclude movies with video content */
+
+  /** Include movies with video content */
   include_video?: boolean;
-  /** ISO 3166-1 region code (optional) */
+
+  /** Region code */
   region?: string;
 }
 
@@ -31,11 +36,10 @@ export interface MovieListResponse {
 
 /** Single movie item returned in MovieListResponse.results */
 export interface MovieListItem {
-  // Identification
   /** Unique TMDB movie ID */
   id: number;
 
-  /** ISO 639-1 original language code */
+  /** Original language code */
   original_language: string;
 
   /** Original title of the movie */
@@ -47,8 +51,7 @@ export interface MovieListItem {
   /** Array of genre IDs related to the movie */
   genre_ids: number[];
 
-  // Content
-  /** Short description (overview) of the movie */
+  /** Short description of the movie */
   overview: string;
 
   /** Whether the movie is marked as adult content */
@@ -57,21 +60,18 @@ export interface MovieListItem {
   /** Whether there is a video file associated with this movie */
   video: boolean;
 
-  // Images
   /** Backdrop image path (relative to base URL) or null */
   backdrop_path: string | null;
 
   /** Poster image path (relative to base URL) or null */
   poster_path: string | null;
 
-  // Metadata
-  /** Release date in format YYYY-MM-DD or empty string if unknown */
+  /** Release date in format YYYY-MM-DD or empty string */
   release_date: string;
 
-  /** Popularity score (lifetime aggregate) */
+  /** Popularity score */
   popularity: number;
 
-  // User ratings
   /** Average user vote (rating) */
   vote_average: number;
 

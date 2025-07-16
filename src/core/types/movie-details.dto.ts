@@ -1,9 +1,9 @@
 /** Full movie details returned from /movie/{movie_id} endpoint */
 export interface MovieDetails {
-  /** Unique movie ID in TMDB */
+  /** Unique movie ID */
   id: number;
 
-  /** Title localized according to the language parameter */
+  /** Localized title */
   title: string;
 
   /** Short movie summary */
@@ -12,7 +12,7 @@ export interface MovieDetails {
   /** Current movie status (e.g., Released, Post Production) */
   status: string;
 
-  /** Homepage URL of the movie (if set) */
+  /** Homepage URL of the movie */
   homepage: string | null;
 
   /** Movie release date in YYYY-MM-DD format */
@@ -46,7 +46,6 @@ export interface MovieDetails {
   genres: Genre[];
 }
 
-/** Genre information */
 export interface Genre {
   id: number;
 

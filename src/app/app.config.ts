@@ -15,8 +15,8 @@ const APP_ENVIRONMENT_PROVIDERS = [
   provideRouter(routes, withHashLocation()),
   provideHttpClient(withFetch(), withInterceptors([tmdbApiKeyInterceptor])),
 ];
-const NGRX_ENVIRONMENT_PROVIDERS = [provideStore({}), provideEffects([]), provideRouterStore()];
 
+const NGRX_ENVIRONMENT_PROVIDERS = [provideStore({}), provideEffects([]), provideRouterStore()];
 if (environment.configuration === 'dev') {
   NGRX_ENVIRONMENT_PROVIDERS.push(provideStoreDevtools({ maxAge: 25, logOnly: false }));
 }

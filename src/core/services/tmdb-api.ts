@@ -16,12 +16,8 @@ export class TmdbApi {
 
   loadPopularMovies(requestParams: PopularMoviesParams = {}): Observable<MovieListResponse> {
     let params = new HttpParams()
-      .set('include_adult', (requestParams.include_adult ?? false).toString())
-      .set('include_video', (requestParams.include_video ?? false).toString())
       .set('page', (requestParams.page ?? 1).toString())
       .set('sort_by', requestParams.sort_by ?? 'popularity.desc');
-
-    if (requestParams.region) params = params.set('region', requestParams.region);
 
     return this.http.get<MovieListResponse>(`${environment.tmdbApiURL}/discover/movie`, { params });
   }
